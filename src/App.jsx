@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { getFlags, getFlag, setFlag } from './lib/store'
 import StartScreen from './screens/StartScreen'
+import LandingScreen from './screens/LandingScreen'
 import LoginScreen from './screens/legacy/LoginScreen'
 import BootScreen from './screens/legacy/BootScreen'
 import MainPanel from './screens/legacy/MainPanel'
@@ -75,7 +76,9 @@ const URGENT_ATTACK_SEQ = [
 ]
 
 export default function App() {
-  const [screen,            setScreen]            = useState(() => pathScreen() || 'home')
+  // The bare domain opens on the landing page; every deep link (and every
+  // in-app path) still lands exactly where it used to.
+  const [screen,            setScreen]            = useState(() => pathScreen() || 'landing')
   const [launchPackage,     setLaunchPackage]     = useState('')
   const [plasmaLevel,       setPlasmaLevel]       = useState(0)
   const [targetIdx,         setTargetIdx]         = useState(-1)
@@ -313,6 +316,7 @@ export default function App() {
       <div className="crt-overlay" />
       <div className="scanlines" />
       <div className="vignette" />
+      {screen === 'landing' && <LandingScreen onEnter={() => setScreen('home')} />}
       {screen === 'home'    && <StartScreen onCampaign={openCampaign} onSkirmish={() => { setBattleSource('home'); setScreen('battle') }} onPlay={() => setScreen('login')} onDebug={() => setScreen('debug')} />}
       {screen === 'campaign-map' && (() => {
         // two campaign-map styles: the classic sector map and the rotatable
