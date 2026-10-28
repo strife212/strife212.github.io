@@ -13,9 +13,19 @@ export default function LandingScreen({ onEnter }) {
         <h1 className="landing-title">IMPERIAL SPACE FORCE</h1>
       </header>
       <div className="landing-plate">
-        Take command of the Imperial Navy. Currently in development for PC.
-        Coming soon. To play the old web demo,{' '}
-        <button className="landing-link" onClick={onEnter}>click here</button>.
+        <p>
+          Take command of the Imperial Navy. Currently in development for PC.
+          Coming soon.
+        </p>
+        <p>
+          To play the old web demo,{' '}
+          <button className="landing-link" onClick={onEnter}>click here</button>.{' '}
+          <strong>
+            (Please note this was just a pre-alpha prototype and no longer
+            reflects the current project which has greatly increased in quality
+            and scope.)
+          </strong>
+        </p>
       </div>
     </div>
   )
