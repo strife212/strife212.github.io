@@ -87,3 +87,20 @@
   color: #fff;
   text-shadow: 0 0 12px rgba(90, 160, 255, 0.8);
 }
+
+/* The demo is a desktop game — on phones (narrow screens, or any
+   touch-only device, which catches landscape phones too) the plate keeps
+   the pitch and drops the demo paragraph. */
+@media (max-width: 820px), (hover: none) and (pointer: coarse) {
+  .landing-demo { display: none; }
+}
+
+/* phone-width: the name is nowrap, so size and tracking must come down
+   together or its tail clips at the viewport edge */
+@media (max-width: 560px) {
+  .landing-title {
+    font-size: clamp(14px, 4.4vw, 20px);
+    letter-spacing: 0.2em;
+    text-indent: 0.2em;
+  }
+}

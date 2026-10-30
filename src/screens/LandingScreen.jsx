@@ -17,7 +17,7 @@ export default function LandingScreen({ onEnter }) {
           Take command of the Imperial Navy. Currently in development for PC.
           Coming soon.
         </p>
-        <p>
+        <p className="landing-demo">
           To play the old web demo,{' '}
           <button className="landing-link" onClick={onEnter}>click here</button>.{' '}
           <strong>
