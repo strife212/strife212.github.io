@@ -706,8 +706,10 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  /* the solid colour backs the gradient: it is what overscroll and in-app
+     browser toolbar gaps paint, and unset it shows as white */
   background:
-    radial-gradient(ellipse at top, #030a1a 0%, #010208 55%, #000 100%);
+    radial-gradient(ellipse at top, #030a1a 0%, #010208 55%, #000 100%) #000;
   color: var(--c-ash);
   font-family: var(--font-mono);
   font-size: 13px;
