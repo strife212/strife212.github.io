@@ -50,7 +50,7 @@ const countTrueFlags = () => Object.values(getFlags()).filter(Boolean).length
 // ── Deep links: a bare path (e.g. /battlesim) opens straight to that screen ───
 // On GitHub Pages the unknown path is served by 404.html, which bounces it back
 // to index.html where a snippet restores the real URL before React mounts.
-const DEEP_LINKS = { battlesim: 'home', fleetbuilder: 'fleetbuilder', cosmogony: 'cosmogony', cosmogony2: 'cosmogony2', cosmogony3: 'cosmogony3', story: 'story', dialogue: 'dialogue', trailer: 'trailer' }
+const DEEP_LINKS = { prototype: 'home', battlesim: 'home', fleetbuilder: 'fleetbuilder', cosmogony: 'cosmogony', cosmogony2: 'cosmogony2', cosmogony3: 'cosmogony3', story: 'story', dialogue: 'dialogue', trailer: 'trailer' }
 const pathScreen = () => {
   const slug = window.location.pathname.replace(/^\/+|\/+$/g, '').toLowerCase()
   return DEEP_LINKS[slug] || null
@@ -316,7 +316,7 @@ export default function App() {
       <div className="crt-overlay" />
       <div className="scanlines" />
       <div className="vignette" />
-      {screen === 'landing' && <LandingScreen onEnter={() => setScreen('home')} />}
+      {screen === 'landing' && <LandingScreen />}
       {screen === 'home'    && <StartScreen onCampaign={openCampaign} onSkirmish={() => { setBattleSource('home'); setScreen('battle') }} onPlay={() => setScreen('login')} onDebug={() => setScreen('debug')} />}
       {screen === 'campaign-map' && (() => {
         // two campaign-map styles: the classic sector map and the rotatable
